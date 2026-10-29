@@ -22,27 +22,27 @@ class DLLIMPORT Container :public Interface
 {
 
 private:
-	
+
 public:
-	
-	bool changed;
-	
+
 	Items items;
-	
+
 	Container();
-		
+
 	Container(IntRect containerRect);
-		
+
 	void add(Addable &item);
-		
+
 	void remove(Addable &item);
-		
+
 	void clear();
-	
-	void control(Modal modal);
-		
-	void draw(RenderWindow* window);
-	
+
+	void setRect(IntRect rect) override;
+
+	void control(Modal modal) override;
+
+	void draw(RenderWindow* window) override;
+
 };
 
 }
