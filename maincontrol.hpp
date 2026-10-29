@@ -35,21 +35,21 @@ if(menu.Highlight(window.getModal())){ // Если на список наведён курсор
 
 if(trigger.LMB(window.getModal())){
 	ModalWindow subwindow(300, 200, "О, окно", sf::Style::Close); // Создать объект класса "Модальное окно"
-	
+
 	//////////////////////////////////////////////////////////////
 	// sf::Style::Close стиль окна, подробнее в документации SFML
 	//////////////////////////////////////////////////////////////
-	
+
 	Interface subinterface(IntRect(0, 0, 300, 200), &lightbackground); // Создать объект класса "Интерфейс"
 	subinterface.show(); // Показать объект
 	subwindow.add(subinterface); // Добавить объект
-	
+
 	Title subtitle(IntRect(50, 50, 50, 20), "Привет"); // Создать объект класса "Заголовок"
 	subtitle.show(); // Показать объект
 	subwindow.add(subtitle); // Добавить объект
-	
+
 	while(subwindow.isOpen()){ // Цикл, пока окно открыто
-		subwindow.control(); // Включить управление
+		subwindow.tune(); // Включить управление
 		subwindow.display(); // Показать объекты
 	}
 }
@@ -61,7 +61,7 @@ if(button.LMB(window.getModal())){ // Если на кнопку нажата левая кнопка мыши
 		mltitle.setCharacterSize(GUIC_BASE_CHAR_SIZE); // Иначе изменить на базовый
 	}
 }
-	
+
 if(!fileMenu.Highlight(window.getModal()) && !menu.Highlight(window.getModal(), 0)){ // Если на списки не наведён курсор
 	fileMenu.hide(); // Спрятать объект fileMenu
 }

@@ -3,11 +3,13 @@
 #ifndef VARIABLES_HPP
 #define VARIABLES_HPP
 
-#if BUILDING_DLL
-#define DLLIMPORT __declspec(dllexport)
+#ifndef DLLIMPORT
+#ifdef BUILD_DLL
+    #define DLLIMPORT __declspec(dllexport)
 #else
-#define DLLIMPORT __declspec(dllimport)
-#endif
+    #define DLLIMPORT __declspec(dllimport)
+#endif // BUILD_DLL
+#endif // DLLIMPORT
 
 #include <SFML/Graphics.hpp>
 
@@ -15,8 +17,8 @@
 #define GUIC_MAX_ITEMS 10000
 #endif
 
-#ifndef BASE_HIGH_LAYER
-#define BASE_HIGH_LAYER 0
+#ifndef GUIC_BASE_HIGH_LAYER
+#define GUIC_BASE_HIGH_LAYER 0
 #endif
 
 #ifndef GUIC_BASE_INTERFACE_LAYER
@@ -97,6 +99,12 @@
 
 #ifndef GUIC_BASE_FONT
 #define GUIC_BASE_FONT
+
+#ifdef __cplusplus
+    extern "C"
+    {
+    #endif
+
 namespace guic {
 	sf::Font DLLIMPORT BaseFont;
 }
@@ -107,6 +115,10 @@ namespace guic {
 namespace guic {
 	sf::Color DLLIMPORT BaseTextColor;
 }
+#endif
+
+#ifdef __cplusplus
+    }
 #endif
 
 #endif

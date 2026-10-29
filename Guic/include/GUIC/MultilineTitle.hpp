@@ -34,11 +34,10 @@ private:
 String linetitle;
 String words[GUIC_MAX_MLTITLE_LENGHT];
 Text lines[GUIC_MAX_MLTITLE_ROWS];
-IntRect rect;
 Font font;
 
 int size=0;
-int lenght = 0;
+int length = 0;
 float charwidth;
 float charheight;
 
